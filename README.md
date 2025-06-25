@@ -1,4 +1,4 @@
-# 🔍 Sistema de Detección de Anomalías en Paneles Solares con Deep Learning
+# Sistema de Detección de Anomalías en Paneles Solares con Deep Learning
 
 Este proyecto utiliza técnicas de visión por computadora y aprendizaje profundo para detectar defectos en paneles solares a partir de imágenes termográficas infrarrojas.
 
