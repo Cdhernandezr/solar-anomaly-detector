@@ -25,8 +25,7 @@ Se implementan y comparan 3 arquitecturas:
 Este proyecto se desarrolló en Google Colab. Asegúrate de tener activada la GPU en `Entorno de ejecución > Cambiar tipo de entorno`.
 
 ## 📌 Ejecución
-
-### Solo necesitas abrir el notebook en Google Colab
+Solo necesitas abrir el [notebook](https://github.com/Cdhernadnezr/solar-anomaly-detector/blob/main/solar-anomaly-detector.ipynb)
 
 ## 👨‍💻 Autor
 
