@@ -26,8 +26,7 @@ Este proyecto se desarrolló en Google Colab. Asegúrate de tener activada la GP
 
 ## 📌 Ejecución
 
-```bash
-# Solo necesitas abrir el notebook en Google Colab
+### Solo necesitas abrir el notebook en Google Colab
 
 ## 👨‍💻 Autor
 
@@ -36,3 +35,4 @@ Ingeniero Electrónico
 Universidad del Magdalena  
 GitHub: [@tuusuario](https://github.com/Cdhernadnezr)  
 LinkedIn: [Tu perfil](https://linkedin.com/in/cristopherhr) 
+
