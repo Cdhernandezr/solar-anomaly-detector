@@ -33,6 +33,6 @@ Este proyecto se desarrolló en Google Colab. Asegúrate de tener activada la GP
 **Cristopher Hernández Romanos**  
 Ingeniero Electrónico  
 Universidad del Magdalena  
-GitHub: [@tuusuario](https://github.com/Cdhernadnezr)  
-LinkedIn: [Tu perfil](https://linkedin.com/in/cristopherhr) 
+GitHub: [@Cdhernadnezr](https://github.com/Cdhernadnezr)  
+LinkedIn: [Cristopher Hernandez R](https://linkedin.com/in/cristopherhr) 
 
