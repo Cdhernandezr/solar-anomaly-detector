@@ -1,0 +1,31 @@
+# Entorno virtual
+venv/
+env/
+.venv/
+.env/
+
+# Archivos de configuración de entorno
+*.env
+*.env.*
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Datos pesados (ajusta según tus carpetas)
+data/
+datasets/
+*.csv
+*.tsv
+*.zip
+*.gz
+*.h5
+*.hdf5
+*.npz
+*.npy
+*.pkl
+*.joblib
+
+# Modelos ya entrenados y checkpoints
+models/
