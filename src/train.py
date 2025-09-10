@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import torch
 import torch.nn as nn
+import requests
+from tqdm import tqdm
 from torch.utils.data import DataLoader
 from sklearn.metrics import classification_report, confusion_matrix
 
@@ -73,7 +75,7 @@ def plot_model_history(model_name, train_history, val_history):
     plt.show()
 
 class ModelTrainer:
-    class ModelTrainer:
+   
     """Clase para entrenar y evaluar modelos de clasificación"""
 
     def __init__(self, model, train_loader, val_loader, test_loader):
@@ -266,25 +268,58 @@ class ModelTrainer:
 
 
 def download_and_extract_dataset():
-    """Descarga y extrae el dataset de paneles solares infrarrojos"""
+    """
+    Descarga y extrae el dataset de paneles solares infrarrojos
+    de una manera robusta y multiplataforma.
+    """
     url = "https://github.com/RaptorMaps/InfraredSolarModules/raw/master/2020-02-14_InfraredSolarModules.zip"
     
-    # Crear la carpeta ../data/ si no existe
-    data_dir = os.path.join(os.path.dirname(__file__), '..', 'data')
-    os.makedirs(data_dir, exist_ok=True)
+    # Define las rutas usando la ubicación del script actual (src/) para que siempre funcione
+    # os.path.dirname(__file__) obtiene el directorio del script actual (src)
+    # '..' sube un nivel al directorio raíz del proyecto
+    data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
+    zip_path = os.path.join(data_folder, 'solar_dataset.zip')
+    # La carpeta que se crea al descomprimir
+    final_dataset_path = os.path.join(data_folder, 'InfraredSolarModules')
     
-    zip_path = os.path.join(data_dir, "solar_dataset.zip")
-    extract_path = data_dir
+    # 1. Crear la carpeta 'data' si no existe
+    os.makedirs(data_folder, exist_ok=True)
+
+    # 2. Verificar si el dataset ya fue extraído para no volver a descargar
+    if os.path.exists(final_dataset_path):
+        Logger.log("✅ El dataset ya existe. Omitiendo descarga y extracción.", 'success')
+        return final_dataset_path
 
     Logger.log("📥 Descargando dataset...", 'info')
-    os.system(f"wget {url} -O {zip_path}")
+    
+    try:
+        # 3. Usar requests para la descarga con un stream y barra de progreso (tqdm)
+        response = requests.get(url, stream=True)
+        response.raise_for_status()  # Lanza un error si la descarga falla (e.g., 404)
+        
+        total_size_in_bytes = int(response.headers.get('content-length', 0))
+        block_size = 1024 # 1 Kibibyte
+        
+        progress_bar = tqdm(total=total_size_in_bytes, unit='iB', unit_scale=True, desc="solar_dataset.zip")
+        
+        with open(zip_path, 'wb') as file:
+            for data in response.iter_content(block_size):
+                progress_bar.update(len(data))
+                file.write(data)
+        progress_bar.close()
 
-    Logger.log("📂 Extrayendo archivos...", 'info')
-    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-        zip_ref.extractall(extract_path)
+        Logger.log("📂 Extrayendo archivos...", 'info')
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall(data_folder) # Extraer directamente en la carpeta 'data'
 
-    return os.path.join(data_dir, "InfraredSolarModules")
-
+        # 4. Opcional: eliminar el archivo .zip después de extraerlo
+        os.remove(zip_path)
+        
+        return final_dataset_path
+        
+    except requests.exceptions.RequestException as e:
+        Logger.log(f"Error de red al descargar el archivo: {e}", 'error')
+        raise SystemExit(e) # Termina el script si la descarga falla
 def run_training():
     """Función principal que encapsula el proceso de entrenamiento."""
     Logger.section("INICIANDO PROCESO DE ENTRENAMIENTO")

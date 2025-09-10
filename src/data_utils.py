@@ -7,7 +7,7 @@ from torch.utils.data import Dataset
 from torchvision import transforms
 from sklearn.model_selection import train_test_split
 
-# Importamos nuestra propia configuración
+from .utils import Logger
 from .config import Config
 
 class SolarDataManager:
