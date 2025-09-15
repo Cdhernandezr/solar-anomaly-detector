@@ -1,0 +1,42 @@
+blocks:
+- all_upstream_blocks_executed: true
+  color: null
+  configuration: {}
+  downstream_blocks: []
+  executor_config: null
+  executor_type: local_python
+  has_callback: false
+  language: python
+  name: load_and_prepare_data
+  retry_config: null
+  status: updated
+  timeout: null
+  type: data_loader
+  upstream_blocks: []
+  uuid: load_and_prepare_data
+cache_block_output_in_memory: false
+callbacks: []
+concurrency_config: {}
+conditionals: []
+created_at: '2025-09-15 01:55:42.667927+00:00'
+data_integration: null
+description: 'Orquesta el ciclo completo de MLOps: ingesta de datos, entrenamiento
+  del modelo (ThermalNet), registro con MLflow y evaluación de rendimiento.'
+executor_config: {}
+executor_count: 1
+executor_type: null
+extensions: {}
+name: model_training_pipeline
+notification_config: {}
+remote_variables_dir: null
+retry_config: {}
+run_pipeline_in_one_process: false
+settings:
+  triggers: null
+spark_config: {}
+tags:
+- pytorch
+type: python
+uuid: model_training_pipeline
+variables_dir: C:\Users\herna/.mage_data\solar_mage_project
+widgets: []

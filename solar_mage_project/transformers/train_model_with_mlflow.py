@@ -16,7 +16,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 # Importamos nuestros módulos locales
 from .config import Config
 from .data_utils import SolarDataManager, ThermalImageDataset, DataTransforms
-from .models import ThermalNet # Nos enfocaremos en el mejor modelo
+from .models import ThermalNet
 
 
 class Logger:
@@ -407,3 +407,5 @@ def run_training():
 # Este bloque permite que el script sea ejecutable desde la terminal
 if __name__ == '__main__':
     run_training()
+
+return trainer

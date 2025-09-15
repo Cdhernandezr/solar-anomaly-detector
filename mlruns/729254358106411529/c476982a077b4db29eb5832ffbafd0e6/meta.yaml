@@ -1,0 +1,14 @@
+artifact_uri: file:///C:/Users/herna/OneDrive%20-%20Universidad%20del%20Magdalena/Escritorio/Projects/Python/solar_anomaly_detector/mlruns/729254358106411529/c476982a077b4db29eb5832ffbafd0e6/artifacts
+end_time: 1757886805571
+entry_point_name: ''
+experiment_id: '729254358106411529'
+lifecycle_stage: active
+run_id: c476982a077b4db29eb5832ffbafd0e6
+run_name: auspicious-sloth-111
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1757886805397
+status: 4
+tags: []
+user_id: herna
